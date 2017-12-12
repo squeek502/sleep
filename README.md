@@ -9,6 +9,12 @@ local sleep = require('sleep')
 sleep(1000)
 ```
 
+## Installation
+With [Luarocks](https://luarocks.org):
+```
+luarocks install sleep
+```
+
 ## Building
 To build sleep, you'll need to install [`cmake`](https://cmake.org), some C compiler, and have a Lua static library available that [can be found by `cmake`](https://cmake.org/cmake/help/v3.0/module/FindLua.html) (preferably built with the same compiler you're using to build sleep).
 
