@@ -1,4 +1,5 @@
 build
+build.luarocks
 
 # Created by https://www.gitignore.io/api/lua,macos,linux,cmake,windows
 
