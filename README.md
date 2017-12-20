@@ -1,5 +1,8 @@
 # sleep
 
+[![Build Status](https://travis-ci.org/squeek502/sleep.svg?branch=master)](https://travis-ci.org/squeek502/sleep)
+[![Build status](https://ci.appveyor.com/api/projects/status/bxrotq7ei7p3gkns?svg=true)](https://ci.appveyor.com/project/squeek502/sleep)
+
 Bare-bones Lua module that exposes a millisecond-precision sleep function
 
 ```lua
@@ -16,7 +19,7 @@ luarocks install sleep
 ```
 
 ## Building
-To build sleep, you'll need to install [`cmake`](https://cmake.org), some C compiler, and have a Lua static library available that [can be found by `cmake`](https://cmake.org/cmake/help/v3.0/module/FindLua.html) (preferably built with the same compiler you're using to build sleep).
+To build sleep, you'll need to install [`cmake`](https://cmake.org) and some C compiler. If you're compiling for Windows, you'll also need to have a Lua static library available that [can be found by `cmake`](https://cmake.org/cmake/help/v3.0/module/FindLua.html) (preferably built with the same compiler you're using to build sleep).
 
 ### On Windows
 Open a command line in the `sleep` directory and do the following:
