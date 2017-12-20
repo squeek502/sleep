@@ -11,19 +11,17 @@ env:
 
 os:
   - linux
+  - osx
 
-matrix:
-  include:
-    - language: generic
-      os: osx
-      before_install:
-        - brew update
-        - brew install python3
-        - virtualenv env -p python3
-        - source env/bin/activate
+before_install: |
+  if [ "$TRAVIS_OS_NAME" = "osx" ]; then
+    brew install python
+    virtualenv env
+    source env/bin/activate
+  fi
 
 install:
-  - pip install --user hererocks
+  - pip install hererocks
   - hererocks env --$LUA
   - export PATH="$PWD/env/bin:$PWD/env:$PATH"
 
