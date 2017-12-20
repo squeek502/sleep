@@ -1,7 +1,15 @@
 cmake_minimum_required (VERSION 2.6)
 project (sleep C)
 
-find_package (Lua REQUIRED)
+if(WIN32)
+  find_package (Lua REQUIRED)
+else()
+  # Only the include dir matters on UNIX
+  find_package (Lua)
+  if(NOT LUA_INCLUDE_DIR)
+    message( FATAL_ERROR "Variable `LUA_INCLUDE_DIR' expected to be defined.")
+  endif()
+endif()
 include_directories(${LUA_INCLUDE_DIR})
 
 add_library( sleep MODULE sleep.c )
@@ -18,7 +26,7 @@ if(APPLE)
 endif()
 
 # Build static library when cross-compiling
-if(CMAKE_HOST_UNIX)
+if(WIN32 AND CMAKE_HOST_UNIX)
   add_library( libsleep STATIC sleep.c )
   target_link_libraries ( libsleep ${LUA_LIBRARIES} )
   set_target_properties ( libsleep PROPERTIES OUTPUT_NAME sleep )
