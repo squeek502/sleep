@@ -2,6 +2,9 @@ language: c
 
 sudo: false
 
+matrix:
+  fast_finish: true
+
 env:
   - LUA="lua 5.1"
   - LUA="lua 5.2"
@@ -21,7 +24,7 @@ before_install: |
   fi
 
 install:
-  - pip install hererocks
+  - if [ "$TRAVIS_OS_NAME" = "osx" ]; then pip install hererocks; else pip install --user hererocks; fi
   - hererocks env --$LUA
   - export PATH="$PWD/env/bin:$PWD/env:$PATH"
 
