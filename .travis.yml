@@ -13,10 +13,10 @@ os:
   - linux
   - osx
 
-before_script:
+install:
   - pip install --user hererocks
   - hererocks env --$LUA
-  - export PATH="$PWD/env/bin:$PATH"
+  - export PATH="$PWD/env/bin:$PWD/env:$PATH"
 
 script:
   - cmake .
