@@ -16,13 +16,6 @@ os:
   - linux
   - osx
 
-before_install: |
-  if [ "$TRAVIS_OS_NAME" = "osx" ]; then
-    brew install python
-    virtualenv env
-    source env/bin/activate
-  fi
-
 install:
   - if [ "$TRAVIS_OS_NAME" = "osx" ]; then pip install hererocks; else pip install --user hererocks; fi
   - hererocks env --$LUA
