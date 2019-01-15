@@ -19,7 +19,15 @@ luarocks install sleep
 ```
 
 ## Building
-To build sleep, you'll need to install [`cmake`](https://cmake.org) and some C compiler. If you're compiling for Windows, you'll also need to have a Lua static library available that [can be found by `cmake`](https://cmake.org/cmake/help/v3.0/module/FindLua.html) (preferably built with the same compiler you're using to build sleep).
+
+### With Luarocks
+To build with Luarocks, clone this repository and run the following command within it:
+```
+luarocks make
+```
+
+### With CMake
+To build with CMake, you'll need to install [`cmake`](https://cmake.org) and some C compiler. If you're compiling for Windows, you'll also need to have a Lua static library available that [can be found by `cmake`](https://cmake.org/cmake/help/v3.0/module/FindLua.html) (preferably built with the same compiler you're using to build sleep).
 
 ### On Windows
 Open a command line in the `sleep` directory and do the following:
