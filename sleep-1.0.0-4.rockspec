@@ -1,5 +1,5 @@
 package = "sleep"
-version = "1.0.0-3"
+version = "1.0.0-4"
 source = {
    url = "git://github.com/squeek502/sleep",
    tag = "v" .. version,
@@ -14,10 +14,8 @@ dependencies = {
    "lua >= 5.1"
 }
 build = {
-   type = "cmake",
-   variables = {
-     CMAKE_C_FLAGS="$(CFLAGS)",
-     CMAKE_MODULE_LINKER_FLAGS="$(LIBFLAG)",
-     LUAROCKS_INSTALL_LIBDIR="$(LIBDIR)",
+   type = "builtin",
+   modules = {
+      sleep = "sleep.c"
    },
 }
